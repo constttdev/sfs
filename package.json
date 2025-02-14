@@ -39,8 +39,12 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.1.1",
+		"@neoconfetti/svelte": "^2.2.1",
 		"@tailwindcss/vite": "^4.0.2",
+		"@types/node": "^22.13.4",
+		"fs": "0.0.1-security",
 		"lucide-svelte": "^0.474.0",
+		"node-fetch": "^3.3.2",
 		"pocketbase": "^0.25.1"
 	}
 }
