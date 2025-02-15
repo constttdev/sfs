@@ -2,6 +2,8 @@
 	import { enhance } from '$app/forms';
 	import PasswordInput from '$lib/components/PasswordInput.svelte';
 	import TextInput from '$lib/components/TextInput.svelte';
+
+	let { form } = $props();
 </script>
 
 <div class="grid h-screen items-center justify-center">
@@ -14,6 +16,7 @@
 			required="true"
 			name="password"
 		/>
-		<button class="bg-primary text-text rounded-lg p-3">Login</button>
+		<button class="bg-primary text-text cursor-pointer rounded-lg p-3">Login</button>
+		{#if form?.error}<p class="text-red-500">{form?.error}</p>{/if}
 	</form>
 </div>

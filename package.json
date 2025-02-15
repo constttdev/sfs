@@ -41,10 +41,13 @@
 		"@fontsource-variable/inter": "^5.1.1",
 		"@neoconfetti/svelte": "^2.2.1",
 		"@tailwindcss/vite": "^4.0.2",
+		"@types/byte-size": "^8.1.2",
 		"@types/node": "^22.13.4",
+		"byte-size": "^9.0.1",
 		"fs": "0.0.1-security",
 		"lucide-svelte": "^0.474.0",
 		"node-fetch": "^3.3.2",
-		"pocketbase": "^0.25.1"
+		"pocketbase": "^0.25.1",
+		"svelte-loading-spinners": "^0.3.6"
 	}
 }

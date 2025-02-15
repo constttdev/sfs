@@ -31,7 +31,9 @@ export const actions = {
 		} catch (error) {
 			if (error instanceof ClientResponseError) {
 				console.log(error);
-				return fail(400, { error: 'Failed to login' });
+				return fail(400, {
+					error: 'Failed to login! Please check that you use the right credentials'
+				});
 			}
 		}
 	}

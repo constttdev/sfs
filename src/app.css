@@ -13,6 +13,8 @@
 	--color-secondary: oklab(78.74% 0.01 0.02);
 	--color-accent: oklab(72.43% 0.015 0.03);
 	--color-dbackground: oklab(11.68% 0.002 0);
+	--color-card: oklch(18.1% 0.002 0);
+	--color-lcard: oklch(79.23% 0.002 0);
 }
 
 @layer base {
@@ -38,4 +40,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
 	@apply bg-gray-600;
+}
+
+@layer utilities {
+	.outline-dashed-custom {
+		outline-style: dashed;
+		outline-width: 2px;
+		outline-offset: 4px;
+		border-spacing: 70px;
+	}
 }

@@ -5,6 +5,7 @@
 	import { slide } from 'svelte/transition';
 	import { innerWidth, innerHeight } from 'svelte/reactivity/window';
 	import Upload from 'lucide-svelte/icons/upload';
+	import Files from 'lucide-svelte/icons/files';
 	import House from 'lucide-svelte/icons/house';
 
 	$effect(() => {
@@ -24,7 +25,7 @@
 		{
 			name: 'Files',
 			href: '/files',
-			icon: Settings
+			icon: Files
 		},
 		{
 			name: 'Upload',
