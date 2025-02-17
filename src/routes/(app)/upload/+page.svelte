@@ -10,7 +10,7 @@
 
 	let iconState: 'dark' | 'light' = $derived(darkModeState.state ? 'dark' : 'light');
 	let fileTooLargeError = $state(false);
-	let finishedUploading = $state(false);
+	let finishedUploading: Boolean = $state(false);
 	let uploadedFile: File | undefined = $state();
 	let uploadedFileSize: number | undefined = $derived(uploadedFile?.size);
 	let pocketbaseRecordId: String = $state('');
@@ -26,14 +26,10 @@
 	class="w-screen"
 	use:enhance={({ formData, cancel }) => {
 		finishedUploading = false;
-		console.log(`FinsihedUploadingVar: ${finishedUploading}`);
 		loadingVar = 'loading';
-		console.log(`LoadingVar: ${loadingVar}`);
 		fileTooLargeError = false;
-		console.log(`FileTooLargeErrorVar: ${fileTooLargeError}`);
 		let file = formData.get('file') as File;
 		uploadedFile = formData.get('file') as File;
-		console.log(`File: ${file}`);
 		if (!file) return;
 		if (file.size >= 10737418240) {
 			cancel();
@@ -117,6 +113,13 @@
 						<button
 							class="flex h-10 w-20 cursor-pointer items-center gap-3 rounded-lg bg-blue-500 p-1"
 							><Share_2 class="size-7" /> Share</button
+						>
+						<a
+							class="mt-2 text-zinc-600 underline"
+							href="/upload"
+							onclick={() => {
+								finishedUploading = false;
+							}}>Upload another file</a
 						>
 					</div>
 				</div>

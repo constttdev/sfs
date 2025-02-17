@@ -44,15 +44,18 @@
 	{#if showSidebar}
 		<div
 			transition:slide={{ axis: 'x', duration: 500 }}
-			class="flex h-screen w-52 flex-col justify-between overflow-hidden border-r border-zinc-900 p-2 whitespace-nowrap lg:static"
+			class="flex h-screen w-52 flex-col justify-between overflow-hidden p-2 whitespace-nowrap lg:static"
 		>
 			<div>
+				<p class="font-inter font-bold">Svelte File Server</p>
 				{#each menuItems as item}
 					{@const Icon = item.icon}
-					<div class="mt-2 flex items-center gap-2">
+					<div
+						class="mt-2 flex items-center gap-2 overflow-hidden rounded-lg p-1 hover:border hover:border-zinc-300 hover:bg-zinc-100 hover:drop-shadow-xs dark:hover:border-zinc-700 dark:hover:bg-zinc-800"
+					>
 						<Icon size="16" />
 						<a href={item.href}>
-							<span class="text-sm">{item.name}</span>
+							<span class="font-inter text-sm">{item.name}</span>
 						</a>
 					</div>
 				{/each}
@@ -61,7 +64,7 @@
 	{/if}
 	<div>
 		<button
-			class="p-1"
+			class="p-1 opacity-5 dark:opacity-25"
 			onclick={() => {
 				showSidebar = !showSidebar;
 			}}><PanelLeft /></button
