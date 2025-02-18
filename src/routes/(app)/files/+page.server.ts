@@ -7,6 +7,7 @@ export const load = async ({ locals }) => {
 		const url = locals.pb.files.getURL(file, file.file);
 		const request = await fetch(url, { method: 'GET' });
 		const fileSize: number | undefined = Number(request.headers.get('Content-Length'));
+		const fileId: string = file.id;
 		const fileName: string | undefined = String(request.headers.get('Content-Disposition'))
 			.split(';')
 			.pop()
@@ -14,7 +15,8 @@ export const load = async ({ locals }) => {
 			.trimStart();
 		filesR.push({
 			fileName: fileName,
-			fileSize: fileSize
+			fileSize: fileSize,
+			id: fileId
 		});
 		// request.headers.forEach((value, key) => {
 		// 	console.log(`${key}: ${value}`);
