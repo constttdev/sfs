@@ -25,3 +25,16 @@ export const load = async ({ locals }) => {
 
 	return { files: filesR };
 };
+
+export const actions = {
+	deleteFile: async ({ request, locals }) => {
+		const data = await request.formData();
+		const recordId = data.get('recordId');
+
+		try {
+			await locals.pb.collection('files').delete(String(recordId));
+		} catch (error) {
+			console.log(error);
+		}
+	}
+};

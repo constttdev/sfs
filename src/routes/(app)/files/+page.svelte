@@ -3,6 +3,7 @@
 	import File from 'lucide-svelte/icons/file';
 	import Share_2 from 'lucide-svelte/icons/share-2';
 	import Delete from 'lucide-svelte/icons/delete';
+	import { enhance } from '$app/forms';
 
 	let showOptions = $state(false);
 
@@ -23,16 +24,17 @@
 					<p>{byteSize(file.fileSize)}</p>
 				</div>
 				<div class="flex gap-4">
+					<form action="files?/deleteFile" method="post" use:enhance>
+						<button
+							class="flex cursor-pointer items-center gap-3 rounded-lg bg-red-300 p-1 px-2 py-1 dark:bg-red-500"
+							><Delete class="size-5" /> Delete</button
+						>
+						<input type="hidden" value={file.id} id="recordId" name="recordId" />
+					</form>
+					<p>{file.id}</p>
 					<button
-						formmethod="post"
-						formaction="upload?/deleteFile"
-						class="flex h-10 w-20 cursor-pointer items-center gap-3 rounded-lg bg-red-500 p-1"
-						><Delete class="size-7" /> Delete</button
-					>
-					<input type="hidden" value={file.id} id="recordId" name="recordId" />
-					<button
-						class="flex h-10 w-20 cursor-pointer items-center gap-3 rounded-lg bg-blue-500 p-1"
-						><Share_2 class="size-7" /> Share</button
+						class="flex cursor-pointer items-center gap-3 rounded-lg bg-blue-300 p-1 px-2 py-1 dark:bg-blue-500"
+						><Share_2 class="size-5" /> Share</button
 					>
 				</div>
 			</div>
