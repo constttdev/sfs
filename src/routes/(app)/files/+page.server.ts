@@ -36,5 +36,19 @@ export const actions = {
 		} catch (error) {
 			console.log(error);
 		}
+	},
+	shareFile: async ({ request, locals }) => {
+		const data = await request.formData();
+		const recordId = data.get('recordId');
+
+		const reqData = {
+			public: true
+		};
+
+		try {
+			await locals.pb.collection('files').update(String(recordId), reqData);
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };

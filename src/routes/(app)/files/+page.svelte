@@ -31,11 +31,13 @@
 						>
 						<input type="hidden" value={file.id} id="recordId" name="recordId" />
 					</form>
-					<p>{file.id}</p>
-					<button
-						class="flex cursor-pointer items-center gap-3 rounded-lg bg-blue-300 p-1 px-2 py-1 dark:bg-blue-500"
-						><Share_2 class="size-5" /> Share</button
-					>
+					<form action="files?/shareFile" method="post" use:enhance>
+						<button
+							class="flex cursor-pointer items-center gap-3 rounded-lg bg-blue-300 p-1 px-2 py-1 dark:bg-blue-500"
+							><Share_2 class="size-5" /> Share</button
+						>
+						<input type="hidden" value={file.id} id="recordId" name="recordId" />
+					</form>
 				</div>
 			</div>
 		</div>
