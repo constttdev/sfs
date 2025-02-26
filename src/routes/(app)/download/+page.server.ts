@@ -19,7 +19,7 @@ export const actions = {
 	downloadFile: async ({ locals, request }) => {
 		const { fileId } = Object.fromEntries(await request.formData());
 
-		let currentDownloadCount = await locals.pb.collection('files').getOne(String(fileId));
+		const currentDownloadCount = await locals.pb.collection('files').getOne(String(fileId));
 		console.log(`fileid ${fileId}`);
 
 		const pbData = {
