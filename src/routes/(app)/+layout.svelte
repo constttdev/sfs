@@ -3,11 +3,13 @@
 	import Sidebar from '$lib/components/sidebar.svelte';
 	import DarkModeSwitcher from '$lib/components/darkModeSwitcher.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <div class="flex">
-	<Sidebar />
+	{#if data.user}
+		<Sidebar />
+	{/if}
 	<DarkModeSwitcher />
 	{@render children?.()}
 </div>

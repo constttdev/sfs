@@ -1,4 +1,8 @@
+import { redirect } from '@sveltejs/kit';
+
 export const load = async ({ locals }) => {
+	if (!locals.user) redirect(307, '/login');
+
 	const files = await locals.pb.collection('files').getFullList();
 
 	const filesR = [];
@@ -28,6 +32,8 @@ export const load = async ({ locals }) => {
 
 export const actions = {
 	deleteFile: async ({ request, locals }) => {
+		if (!locals.user) redirect(307, '/login');
+
 		const data = await request.formData();
 		const recordId = data.get('recordId');
 
@@ -38,6 +44,8 @@ export const actions = {
 		}
 	},
 	shareFile: async ({ request, locals }) => {
+		if (!locals.user) redirect(307, '/login');
+
 		const data = await request.formData();
 		const recordId = data.get('recordId');
 

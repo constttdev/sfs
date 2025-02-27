@@ -12,4 +12,4 @@
 
 ## Links
 
-- (Discord)[https://constt.de/r/discord]
+- [Discord](https://constt.de/r/discord)

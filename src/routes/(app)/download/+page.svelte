@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 
-	let formElement: HTMLFormElement | undefined = $state();
-
-	let { data } = $props();
+	let { data, form } = $props();
 </script>
 
-<form bind:this={formElement} use:enhance method="post" action="download?/downloadFile">
-	<a
-		onclick={(e) => formElement.requestSubmit}
-		href={data.fileUrl + '?download=1'}
-		download={data.fileName}>Download please</a
-	>
-	<input type="hidden" name="fileId" value={data.fileId} id="fileId" />
-</form>
+<div class="flex h-screen w-full items-center justify-center">
+	<div class="items-center justify-center rounded-xl bg-zinc-900 px-40 py-20 dark:bg-zinc-200">
+		<h1>File Name</h1>
+		<form use:enhance method="post" action="?/downloadFile">
+			<button class="text-text cursor-pointer rounded-xl bg-zinc-300 p-2">Download</button>
+			<input type="hidden" name="fileId" id="fileId" value={data.fileId} />
+		</form>
+	</div>
+</div>
