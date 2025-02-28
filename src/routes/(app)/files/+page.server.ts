@@ -8,7 +8,10 @@ export const load = async ({ locals }) => {
 	const filesR = [];
 
 	for (const file of files) {
-		const url = locals.pb.files.getURL(file, file.file);
+		const fileToken = await locals.pb.files.getToken();
+
+		const url = locals.pb.files.getURL(file, file.file, { token: fileToken });
+
 		const request = await fetch(url, { method: 'GET' });
 		const fileSize: number | undefined = Number(request.headers.get('Content-Length'));
 		const fileId: string = file.id;
