@@ -5,8 +5,7 @@
 	import Delete from 'lucide-svelte/icons/delete';
 	import Download from 'lucide-svelte/icons/download';
 	import { enhance } from '$app/forms';
-
-	let showOptions = $state(false);
+	import PublicStateButton from '$lib/components/publicStateButton.svelte';
 
 	let { data } = $props();
 </script>
@@ -37,13 +36,7 @@
 						>
 						<input type="hidden" value={file.id} id="recordId" name="recordId" />
 					</form>
-					<form action="files?/shareFile" method="post" use:enhance>
-						<button
-							class="flex cursor-pointer items-center gap-3 rounded-lg bg-blue-300 p-1 px-2 py-1 dark:bg-blue-500"
-							><Share_2 class="size-5" /> Share</button
-						>
-						<input type="hidden" value={file.id} id="recordId" name="recordId" />
-					</form>
+					<PublicStateButton recordId={file.id} publicState={file.publicState} />
 				</div>
 			</div>
 		</div>

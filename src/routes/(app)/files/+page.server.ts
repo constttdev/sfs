@@ -11,7 +11,7 @@ export const load = async ({ locals }) => {
 		const fileToken = await locals.pb.files.getToken();
 
 		const url = locals.pb.files.getURL(file, file.file, { token: fileToken });
-
+		const publicState = file.public;
 		const request = await fetch(url, { method: 'GET' });
 		const fileSize: number | undefined = Number(request.headers.get('Content-Length'));
 		const fileId: string = file.id;
@@ -23,7 +23,8 @@ export const load = async ({ locals }) => {
 		filesR.push({
 			fileName: fileName,
 			fileSize: fileSize,
-			id: fileId
+			id: fileId,
+			publicState: publicState
 		});
 		// request.headers.forEach((value, key) => {
 		// 	console.log(`${key}: ${value}`);
@@ -46,14 +47,18 @@ export const actions = {
 			console.log(error);
 		}
 	},
-	shareFile: async ({ request, locals }) => {
+	changePublicState: async ({ request, locals }) => {
 		if (!locals.user) redirect(307, '/login');
 
 		const data = await request.formData();
+		const publicState = data.get('state') === 'on';
 		const recordId = data.get('recordId');
 
+		console.log(`publicState: ${publicState}`);
+		console.log(`recordId: ${recordId}`);
+
 		const reqData = {
-			public: true
+			public: publicState
 		};
 
 		try {
