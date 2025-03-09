@@ -9,7 +9,6 @@ export const load = async ({ locals }) => {
 	return { user: locals.user };
 };
 
-/** @type {import('./$types').Actions} */
 export const actions = {
 	login: async ({ request, locals }) => {
 		const data = await request.formData();
@@ -19,15 +18,8 @@ export const actions = {
 			return fail(400, { error: 'Email or password is missing' });
 		}
 
-		const reqdata = {
-			email: email,
-			password: password
-		};
-
 		try {
-			await locals.pb
-				.collection('users')
-				.authWithPassword(reqdata.email.toString(), reqdata.password.toString());
+			await locals.pb.collection('users').authWithPassword(email.toString(), password.toString());
 		} catch (error) {
 			if (error instanceof ClientResponseError) {
 				console.log(error);
