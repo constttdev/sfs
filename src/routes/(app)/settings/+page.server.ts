@@ -8,7 +8,6 @@ export const actions = {
 	logout: async ({ locals }) => {
 		if (!locals.user) redirect(307, '/login');
 
-		console.log('logout');
 		await locals.pb.authStore.clear();
 		redirect(307, '/login');
 	}

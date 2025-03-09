@@ -1,1 +1,1 @@
-<p>Please select a route</p>
+<a href="/login">Please login or select a route!</a>
