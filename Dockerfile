@@ -2,12 +2,16 @@ FROM node:20-alpine
 
 WORKDIR /src
 
-RUN npm i -g pnpm
+COPY ["./package.json", "./pnpm-lock.yaml*", "./"]
 
-COPY ["./app/package.json", "./app/pnpm-lock.yaml*", "./"]
+ARG POCKETBASE_URL
 
-RUN pnpm install
+ENV POCKETBASE_URL=https://example.com
 
-EXPOSE 3000 5173
+RUN npm install
 
-CMD ["pnpm", "run", "dev"]
+EXPOSE 3000
+
+RUN npm run build
+
+CMD ["node", "build"]
