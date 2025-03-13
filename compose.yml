@@ -1,0 +1,13 @@
+services:
+  sfs:
+    restart: unless-stopped
+    build:
+      context: services/website/.
+    ports:
+      - "3000:3000"
+  pocketbase:
+    restart: unless-stopped
+    build:
+      context: services/pocketbase/.
+    ports:
+      - "8090:8090"

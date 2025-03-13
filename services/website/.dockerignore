@@ -1,0 +1,13 @@
+.git
+.gitignore
+.gitattributes
+README.md
+.npmrc
+.prettierrc
+.eslintrc.cjs
+.graphqlrc
+.editorconfig
+.vscode
+node_modules
+build
+package

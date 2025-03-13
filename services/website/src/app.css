@@ -1,0 +1,52 @@
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-inter: 'Inter Variable', 'sans-serif';
+
+	--color-text: oklab(17.8% 0 0);
+	--color-dtext: oklab(95.53% 0 0);
+	--color-background: oklab(98.29% 0.001 0);
+	--color-primary: oklab(63.14% 0.014 0.03);
+	--color-secondary: oklab(78.74% 0.01 0.02);
+	--color-accent: oklab(72.43% 0.015 0.03);
+	--color-dbackground: oklab(11.68% 0.002 0);
+	--color-card: oklch(18.1% 0.002 0);
+	--color-lcard: oklch(79.23% 0.002 0);
+}
+
+@layer base {
+	body {
+		@apply bg-background dark:bg-dbackground text-text dark:text-dtext;
+	}
+	html {
+		scroll-behavior: smooth !important;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-gray-700;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-gray-400;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-gray-600;
+}
+
+@layer utilities {
+	.outline-dashed-custom {
+		outline-style: dashed;
+		outline-width: 2px;
+		outline-offset: 4px;
+		border-spacing: 70px;
+	}
+}
