@@ -1,0 +1,32 @@
+{
+	"/(auth)": [],
+	"/(app)": [
+		"src/routes/(app)/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	],
+	"/": [],
+	"/(app)/download": [
+		"src/routes/(app)/download/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	],
+	"/(app)/files": [
+		"src/routes/(app)/files/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	],
+	"/(app)/home": [
+		"src/routes/(app)/home/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	],
+	"/(auth)/login": [
+		"src/routes/(auth)/login/+page.server.ts"
+	],
+	"/(app)/settings": [
+		"src/routes/(app)/settings/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	],
+	"/(app)/upload": [
+		"src/routes/(app)/upload/+page.server.ts",
+		"src/routes/(app)/+layout.server.ts"
+	]
+}
