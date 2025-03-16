@@ -1,3 +1,6 @@
+networks:
+  sfs-network:
+
 services:
   sfs:
     restart: unless-stopped
@@ -5,9 +8,13 @@ services:
       context: services/website/.
     ports:
       - "3000:3000"
+    networks:
+      - sfs-network
   pocketbase:
     restart: unless-stopped
     build:
       context: services/pocketbase/.
     ports:
       - "8090:8090"
+    networks:
+      - sfs-network
