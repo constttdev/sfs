@@ -1,5 +1,6 @@
 networks:
-  sfs-network:
+  mynetwork:
+    driver: bridge
 
 services:
   sfs:
@@ -9,7 +10,8 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - sfs-network
+      - mynetwork
+    hostname: website
   pocketbase:
     restart: unless-stopped
     build:
@@ -17,4 +19,5 @@ services:
     ports:
       - "8090:8090"
     networks:
-      - sfs-network
+      - mynetwork
+    hostname: database
