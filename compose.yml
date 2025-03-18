@@ -1,7 +1,3 @@
-networks:
-  mynetwork:
-    driver: bridge
-
 services:
   sfs:
     restart: unless-stopped
@@ -9,8 +5,6 @@ services:
       context: services/website/.
     ports:
       - "3000:3000"
-    networks:
-      - mynetwork
     hostname: website
   pocketbase:
     restart: unless-stopped
@@ -18,6 +12,4 @@ services:
       context: services/pocketbase/.
     ports:
       - "8090:8090"
-    networks:
-      - mynetwork
     hostname: database
